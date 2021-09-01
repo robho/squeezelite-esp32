@@ -17,7 +17,7 @@ idf_component_register( SRC_DIRS . external ac101 tas57xx wm8978
 
 set_source_files_properties(mad.c pcm.c flac.c alac.c helix-aac.c vorbis.c opus.c
     PROPERTIES COMPILE_FLAGS
-    -Wno-maybe-uninitialized 
+    -Wno-maybe-uninitialized
 )
 
 add_definitions(-DLINKALL -DLOOPBACK -DNO_FAAD -DEMBEDDED -DTREMOR_ONLY -DCUSTOM_VERSION=${BUILD_NUMBER})
