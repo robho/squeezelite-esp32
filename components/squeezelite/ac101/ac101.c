@@ -35,7 +35,8 @@
 
 static const char TAG[] = "AC101";
 
-#define SPKOUT_EN ((1 << 9) | (1 << 11) | (1 << 7) | (1 << 5))
+//#define SPKOUT_EN ((1 << 9) | (1 << 11) | (1 << 7) | (1 << 5))
+#define SPKOUT_EN ((1 << 8) | (1 << 7) | (1 << 5)) // L active, mix L+R
 #define EAROUT_EN ((1 << 11) | (1 << 12) | (1 << 13))
 #define BIN(a,b,c,d)	0b##a##b##c##d
 
@@ -121,7 +122,7 @@ static bool init(char *config, int i2c_port, i2s_config_t *i2s_config) {
 #endif	
 	
 	// enable earphone & speaker
-	adac_write_word(AC101_ADDR, SPKOUT_CTRL, 0x0220);
+	adac_write_word(AC101_ADDR, SPKOUT_CTRL, 0x0000);
 	adac_write_word(AC101_ADDR, HPOUT_CTRL, 0xf801);
 	
 	// set gain for speaker and earphone
